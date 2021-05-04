@@ -69,10 +69,10 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### ニューラルネットとは
 
-- 基本的に、ニューロンは入力の重み付き和(W.T*X)を計算し、パーセプトロンで出力を予測するための閾値を設定する。重み付き和が閾値を超えた場合、パーセプトロンは発火し、閾値を超えなければ発火しない。
+- ニューロンは入力の重み付き和(W.T*X)を計算し、パーセプトロンで出力を予測するための閾値を設定する。重み付き和が閾値を超えた場合、パーセプトロンは発火し、閾値を超えなければ発火しない。
 - パーセプトロンは、実数値もしくはブール値を入力とすることが出来る
 - 実際、w⋅x+b=0の時は、パーセプトロンの出力は0
-- パーセプトロンの欠点は、二値しか出力しないことで、重みやバイアスに僅かな変化を与えると、出力が反転してしまう。重みやバイアスの僅かな変化に応じて、出力を少し変化させるシステムが必要。ここで、シグモイド関数が使えます。
+- パーセプトロンの欠点は、二値しか出力しないことで、重みやバイアスに僅かな変化を与えると、出力が反転してしまう。重みやバイアスの僅かな変化に応じて、出力を少し変化させるシステムが必要。ここで、シグモイド関数が使える。
 - パーセプトロンで出力が0の状態から、重みとバイアスを僅かに変更して、実際の値が0.7になったら、出力が1になる。シグモイド関数であれば、0.7の時は0.7と出力できる。
 
 - Simple NN graph:
@@ -86,38 +86,34 @@ Here are the course summary as its given on the course [link](https://www.course
 - 各入力は隠れ層に接続され、NNがその接続（重み）を決定する。
 - 教師あり学習は、(X, Y)を用いて、XからYへの写像fを求めること
 
-### Supervised learning with neural networks
+### ニューラルネットと教師あり学習
 
-- Different types of neural networks for supervised learning which includes:
-  - CNN or convolutional neural networks (Useful in computer vision)
-  - RNN or Recurrent neural networks (Useful in Speech recognition or NLP)
-  - Standard NN (Useful for Structured data)
+- ニューラルネットの様々なタイプ:
+  - CNN or convolutional neural networks (コンピュータービジョンで有用)
+  - RNN or Recurrent neural networks (音声認識や自然言語処理で有用）
+  - Standard NN (構造化データで有用）
   - Hybrid/custom NN or a Collection of NNs types
-- Structured data is like the databases and tables.
-- Unstructured data is like images, video, audio, and text.
-- Structured data gives more money because companies relies on prediction on its big data.
+- 構造化データは、データベースやテーブルが含まれる.
+- 非構造化データは、画像や動画、音声やテキストが含まれる.
 
 ### Why is deep learning taking off?
 
-- Deep learning is taking off for 3 reasons:
+- Deep Learningが立ち上がった3つの理由
   1. Data:
      - Using this image we can conclude:
        - ![](Images/11.png)
-     - For small data NN can perform as Linear regression or SVM (Support vector machine)
-     - For big data a small NN is better that SVM
-     - For big data a big NN is better that a medium NN is better that small NN.
-     - Hopefully we have a lot of data because the world is using the computer a little bit more
-       - Mobiles
-       - IOT (Internet of things)
+     - 小規模データでは、ニューラルネットはLinear RegressionもしくはSVMと同等
+     - 大規模データでは、小規模ニューラルネットはSVMより高性能
+     - 大規模データでは、大規模ニューラルネットは>中規模NN>小規模NN
+     - モバイルやIOTの普及で、データを集めやすくなっている
   2. Computation:
      - GPUs.
      - Powerful CPUs.
      - Distributed computing.
-     - ASICs
+     - ASICs(application specific integrated circuit)
   3. Algorithm:
-     1. Creative algorithms has appeared that changed the way NN works.
-        - For example using RELU function is so much better than using SIGMOID function in training a NN because it helps with the vanishing gradient problem.
-
+     1. NNの性能をあげるアルゴリズムCreative algorithms has appeared that changed the way NN works.
+        - 例えば、RELUを使うとシグモイドを使った学習よりも性能向上できる。勾配消失の問題を緩和できるため。
   ​
 
 ## Neural Networks Basics
