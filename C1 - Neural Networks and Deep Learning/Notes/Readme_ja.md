@@ -112,7 +112,7 @@ Here are the course summary as its given on the course [link](https://www.course
      - Distributed computing.
      - ASICs(application specific integrated circuit)
   3. Algorithm:
-     1. NNの性能をあげるアルゴリズムCreative algorithms has appeared that changed the way NN works.
+     1. NNの性能をあげるアルゴリズム
         - 例えば、RELUを使うとシグモイドを使った学習よりも性能向上できる。勾配消失の問題を緩和できるため。
   ​
 
@@ -139,15 +139,15 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Logistic regression
 
-- Algorithm is used for classification algorithm of 2 classes.
-- Equations:
+- 2クラス分類で使われるアルゴリズム
+- 数式:
   - Simple equation:	`y = wx + b`
-  - If x is a vector: `y = w(transpose)x + b`
-  - If we need y to be in between 0 and 1 (probability): `y = sigmoid(w(transpose)x + b)`
+  - xがベクトルの場合: `y = w(transpose)x + b`
+  - 出力を0から1の間にする場合（確率）: `y = sigmoid(w(transpose)x + b)`
   - In some notations this might be used: `y = sigmoid(w(transpose)x)`
-    - While `b` is `w0` of `w` and we add `x0 = 1`. but we won't use this notation in the course (Andrew said that the first notation is better).
-- In binary classification `Y` has to be between `0` and `1`.
-- In the last equation `w` is a vector of `Nx` and `b` is a real number
+    - `b`を`w0`として`w`に含め、`x0 = 1`を追加する記述. ただし、Andrew Ngは最初の記述がベターと述べている
+- 2クラス分類の時は`Y`は`0`か`1`.
+- `w`は`Nx`個のベクトル、`b`は実数値
 
 ### Logistic regression cost function
 
