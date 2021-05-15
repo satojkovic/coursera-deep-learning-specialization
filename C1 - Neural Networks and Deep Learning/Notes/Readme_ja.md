@@ -151,14 +151,14 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Logistic regression cost function
 
-- First loss function would be the square root error:  `L(y',y) = 1/2 (y' - y)^2`
-  - But we won't use this notation because it leads us to optimization problem which is non convex, means it contains local optimum points.
-- This is the function that we will use: `L(y',y) = - (y*log(y') + (1-y)*log(1-y'))`
-- To explain the last function lets see:
-  - if `y = 1` ==> `L(y',1) = -log(y')`  ==> we want `y'` to be the largest   ==> `y`' biggest value is 1
-  - if `y = 0` ==> `L(y',0) = -log(1-y')` ==> we want `1-y'` to be the largest ==> `y'` to be smaller as possible because it can only has 1 value.
-- Then the Cost function will be: `J(w,b) = (1/m) * Sum(L(y'[i],y[i]))`
-- The loss function computes the error for a single training example; the cost function is the average of the loss functions of the entire training set.
+- ロジスティック回帰のロス関数で二乗誤差を考える:  `L(y',y) = 1/2 (y' - y)^2`
+  - これは凸な関数ではない（局所解が存在）ために使われない
+- その代わりに使用するロス関数: `L(y',y) = - (y*log(y') + (1-y)*log(1-y'))`
+- ロス関数の説明
+  - 正解ラベル`y = 1`のとき ==> `L(y',1) = -log(y')`  ==> ロスが小さくなるように、`y'`を大きくする   ==> `y`を大きくする   ==> sigmoidなので1になるようにwとbを更新する
+  - 正解ラベル`y = 0`のとき ==> `L(y',0) = -log(1-y')` ==> ロスが小さくなるように、`1-y'`を大きくする ==> `y'`を小さくする   ==> sigmoidなので0になるようにwとbを更新する
+- 使用するコスト関数: `J(w,b) = (1/m) * Sum(L(y'[i],y[i]))`
+- ロス関数は単一の学習サンプルに対するエラーを計算するもの、コスト関数はm個の学習サンプルに対するエラーを計算するもの
 
 ### Gradient Descent
 
