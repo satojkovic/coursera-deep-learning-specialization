@@ -162,19 +162,19 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Gradient Descent
 
-- We want to predict `w` and `b` that minimize the cost function.
-- Our cost function is convex.
-- First we initialize `w` and `b` to 0,0 or initialize them to a random value in the convex function and then try to improve the values the reach minimum value.
-- In Logistic regression people always use 0,0 instead of random.
-- The gradient decent algorithm repeats: `w = w - alpha * dw`
-  where alpha is the learning rate and `dw` is the derivative of `w` (Change to `w`)
-  The derivative is also the slope of `w`
-- Looks like greedy algorithms. the derivative give us the direction to improve our parameters.
+- コスト関数を最小化するような`w`と`b`を求めたい
+- コスト関数は凸である
+- まず初めに`w`と`b`を0,0、もしくはランダムな値に初期化、それから最小値に到達するように更新していく
+- ロジスティック回帰では、ランダム値よりは0, 0に初期化することが多い
+- 勾配法は、次の更新を繰り返す方法: `w = w - alpha * dw`
+  アルファは学習率で`dw`は`w`の微分値 (`w`の偏微分)
+  微分は`w`の傾きでもある
+- 貪欲アルゴリズムのように、微分はパラメータを最小値に到達するように改善する方向を示している
 
 
-- The actual equations we will implement:
-  - `w = w - alpha * d(J(w,b) / dw)`        (how much the function slopes in the w direction)
-  - `b = b - alpha * d(J(w,b) / db)`        (how much the function slopes in the d direction)
+- 実際の数式:
+  - `w = w - alpha * d(J(w,b) / dw)`        (関数がw方向にどれだけ傾斜しているか)
+  - `b = b - alpha * d(J(w,b) / db)`        (関数がb方向にどれだけ傾斜しているか)
 
 ### Derivatives
 
