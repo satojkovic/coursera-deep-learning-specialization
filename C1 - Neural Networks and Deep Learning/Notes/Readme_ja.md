@@ -168,22 +168,21 @@ Here are the course summary as its given on the course [link](https://www.course
 - ロジスティック回帰では、ランダム値よりは0, 0に初期化することが多い
 - 勾配法は、次の更新を繰り返す方法: `w = w - alpha * dw`
   アルファは学習率で`dw`は`w`の微分値 (`w`の偏微分)
-  微分は`w`の傾きでもある
-- 貪欲アルゴリズムのように、微分はパラメータを最小値に到達するように改善する方向を示している
+  導関数は`w`の傾きでもある
+- 貪欲アルゴリズムのように、導関数はパラメータを最小値に到達するように改善する方向を示している
 
 
 - 実際の数式:
-  - `w = w - alpha * d(J(w,b) / dw)`        (関数がw方向にどれだけ傾斜しているか)
-  - `b = b - alpha * d(J(w,b) / db)`        (関数がb方向にどれだけ傾斜しているか)
+  - `w = w - alpha * d(J(w,b)) / d(w)`        (関数がw方向にどれだけ傾斜しているか)
+  - `b = b - alpha * d(J(w,b)) / d(b)`        (関数がb方向にどれだけ傾斜しているか)
 
 ### Derivatives
 
-- We will talk about some of required calculus.
-- You don't need to be a calculus geek to master deep learning but you'll need some skills from it.
-- Derivative of a linear line is its slope.
-  - ex. `f(a) = 3a`                    `d(f(a))/d(a) = 3`
+- 微積分のエキスパートである必要はないけれど、最低限のスキルは必要
+- 導関数は傾きを表す
+  - ex. `f(a) = 3a`,                     `d(f(a))/d(a) = 3`
   - if `a = 2` then `f(a) = 6`
-  - if we move a a little bit `a = 2.001` then `f(a) = 6.003` means that we multiplied the derivative (Slope) to the moved area and added it to the last result.
+  - aを少しだけ動かす（`a = 2.001`）と、導関数を移動した領域にかけて加えたものが最終的な結果となる（`f(a) = 6.003`）
 
 ### More Derivatives examples
 
@@ -192,22 +191,21 @@ Here are the course summary as its given on the course [link](https://www.course
   - `a = 2.0001` ==> `f(a) = 4.0004` approx.
 - `f(a) = a^3`  ==> `d(f(a))/d(a) = 3a^2`
 - `f(a) = log(a)`  ==> `d(f(a))/d(a) = 1/a`
-- To conclude, Derivative is the slope and slope is different in different points in the function thats why the derivative is a function.
+- まとめると、導関数は傾きで、傾きは関数の異なる場所で異なり、そのため導関数は関数である
 
 ### Computation graph
 
-- Its a graph that organizes the computation from left to right.
+- 演算を左から右に整理したグラフ
   - ![](Images/02.png)
 
 ### Derivatives with a Computation Graph
 
-- Calculus chain rule says:
-  If `x -> y -> z`          (x effect y and y effects z)
-  Then `d(z)/d(x) = d(z)/d(y) * d(y)/d(x)`
+- チェインルール:
+  If `x -> y -> z`          (xがyに作用し、yがzに作用する)
+  この時 `d(z)/d(x) = d(z)/d(y) * d(y)/d(x)`
 - The video illustrates a big example.
   - ![](Images/03.png)
-- We compute the derivatives on a graph from right to left and it will be a lot more easier.
-- `dvar` means the derivatives of a final output variable with respect to various intermediate quantities.
+- Computation Graphでは、微分を右から左へ計算していく. dJ/daを計算する場合、dJ/dvとdv/daをチェインルールで求めれば良い. 同じようにdJ/dbの場合、dJ/dvとdv/duとdu/dbをチェインルールで求めれば良い.
 
 ### Logistic Regression Gradient Descent
 
