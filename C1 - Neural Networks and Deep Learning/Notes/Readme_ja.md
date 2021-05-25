@@ -218,7 +218,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Gradient Descent on m Examples
 
-- Lets say we have these variables:
+- 各変数は以下の通り
 
   ```
   	X1                  Feature
@@ -230,10 +230,10 @@ Here are the course summary as its given on the course [link](https://www.course
   	Y(i)                Expected output of i
   ```
 
-- So we have:
+- Forward propを表すと以下の通りとなる
   ![](Images/09.png)
 
-- Then from right to left we will calculate derivations compared to the result:
+- したがって、Backward propは以下のように計算できる
 
   ```
   	d(a)  = d(l)/d(a) = -(y/a) + ((1-y)/(1-a))
@@ -243,10 +243,10 @@ Here are the course summary as its given on the course [link](https://www.course
   	d(B)  = d(z)
   ```
 
-- From the above we can conclude the logistic regression pseudo code:
+- 疑似コード
 
   ```
-  	J = 0; dw1 = 0; dw2 =0; db = 0;                 # Devs.
+  	J = 0; dw1 = 0; dw2 =0; db = 0;   # Devs.
   	w1 = 0; w2 = 0; b=0;							# Weights
   	for i = 1 to m
   		# Forward pass
@@ -270,19 +270,18 @@ Here are the course summary as its given on the course [link](https://www.course
   	b = b - alpha * db
   ```
 
-- The above code should run for some iterations to minimize error.
+- 一定数繰り返し計算することで、ロスを最小化する
 
-- So there will be two inner loops to implement the logistic regression.
+- したがって、Logistic regressionは、上記疑似コードのループと繰り返し計算のループの二重ループで構成される
 
-- Vectorization is so important on deep learning to reduce loops. In the last code we can make the whole loop in one step using vectorization!
+- ループを排除し、計算を高速に行うため、Vectorizationがとても重要になる
 
 ### Vectorization
 
-- Deep learning shines when the dataset are big. However for loops will make you wait a lot for a result. Thats why we need vectorization to get rid of some of our for loops.
-- NumPy library (dot) function is using vectorization by default.
-- The vectorization can be done on CPU or GPU thought the SIMD operation. But its faster on GPU.
-- Whenever possible avoid for loops.
-- Most of the NumPy library methods are vectorized version.
+- Deep learningはデータセットが大きいと十分な性能がだせる。しかし、データが多くなると、計算回数が増えるため、単純なforループの実装をすると効率が悪い。したがって、forループを排除するvectorizationが必要
+- Numpyの多くのメソッドはvectorizationを想定して実装されている
+- vectorizationはSIMD演算でCPUもしくはGPU上で実行される（GPUの方が高速）
+- vectorizationを利用してforループをできるだけ避けるべし
 
 ### Vectorizing Logistic Regression
 
