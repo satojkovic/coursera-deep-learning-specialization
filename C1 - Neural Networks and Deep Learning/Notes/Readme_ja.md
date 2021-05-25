@@ -209,7 +209,11 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Logistic Regression Gradient Descent
 
-- In the video he discussed the derivatives of gradient decent example for one sample with two features `x1` and `x2`.
+- 1サンプル、2つの特徴`x1`と`x2`の時の微分と勾配降下法の例
+- ロス関数は`L(a,y) = - (y*log(a) + (1-y)*log(1-a))`なので、dL/da = -y/a + (1-y)/(1-a)となる
+- da/dzはsigmoidの微分でa(1-a)となる
+- dz/dw1は`x1`となる
+- よってdL/dw1はこれらをチェインルールで、dL/da * da/dz * dz/dw1とかける！
   - ![](Images/04.png)
 
 ### Gradient Descent on m Examples
